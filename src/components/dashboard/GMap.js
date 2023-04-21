@@ -7,7 +7,6 @@ import { setDoc,query,collection,orderBy } from "firebase/firestore";
 import {firebaseApp} from "../../Firebase";
 
 
-const center = {lat: 6.906667, lng: 79.870414}
 const collectionName = "v_locations"
 
 const GMap = () => {
@@ -47,7 +46,7 @@ const GMap = () => {
         <div className={classes['map']}>
             <LoadScript googleMapsApiKey={GMAP_API_KEY}>
                 <GoogleMap
-                    center={center}
+                    center={markers[0]}
                     zoom={18}
                     // mapTypeControlOptions={}
                     mapContainerStyle={{width: '100%', height: '100%'}}
