@@ -1,0 +1,14 @@
+.map-holder{
+    height: 100vh;
+    max-height: 100vh;
+    /*display: grid;*/
+    /*grid-template-rows: 10rem 1fr;*/
+}
+/*.banner{*/
+/*    background: #61dafb;*/
+/*}*/
+.map{
+    height: 100%;
+    width: 100%;
+
+}

@@ -1,0 +1,30 @@
+html{
+    font-size: 62.5%;
+}
+
+.dashboard{
+    max-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40rem 1fr;
+}
+
+.car-list-container{
+    background: #444445;
+    padding: 1rem;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.car-list-container > ul {
+    margin: 0;
+    padding: 0;
+    max-height: 100vh;
+}
+
+.car-list-container > ul > li {
+    margin: 1rem 0;
+}
+.map-container{
+
+}
