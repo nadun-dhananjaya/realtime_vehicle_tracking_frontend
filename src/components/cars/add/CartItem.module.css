@@ -1,0 +1,31 @@
+
+.cart-item{
+    max-height: 10rem;
+    height: 10rem;
+    background: url(".//..//..//..//assets//car//racing_car.png") ,#151517;
+    background-position: right bottom;
+    background-size: 20rem;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.rider-name{
+    margin: auto 0;
+    color: #fff;
+    font-family: 'Squada One', cursive;
+    font-size: 2.6rem;
+
+}
+
+.no-plate{
+    color: #fff;
+    font-family: 'Squada One', cursive;
+    font-size: 2rem;
+    margin: auto 0;
+
+}

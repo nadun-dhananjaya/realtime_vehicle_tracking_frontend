@@ -53,7 +53,15 @@
     font-size: 1.6rem;
     text-transform: uppercase;
     font-weight: bold;
+    cursor: pointer;
 }
-.car-list{
 
+.car-list-container > ul {
+    margin: 0;
+    padding: 0;
+    max-height: 100vh;
+}
+
+.car-list-container > ul > li {
+    margin: 1rem 0;
 }

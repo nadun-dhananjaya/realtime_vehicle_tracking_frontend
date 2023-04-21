@@ -1,5 +1,6 @@
 import "./CarAdd.module.css"
 import classes from "./CarAdd.module.css"
+import CarItem from "./CarItem";
 
 const CarAdd = () => {
     return <div className={classes['car-add']}>
@@ -17,8 +18,13 @@ const CarAdd = () => {
                <div></div>
                <button className={classes['btn-primary']}  type={'submit'}>Add Vehicle</button>
            </form>
-           <div className={classes['car-list']}>
-
+           <div className={classes['car-list-container']}>
+                <ul>
+                    <li>
+                        <CarItem/>
+                        <CarItem/>
+                    </li>
+                </ul>
            </div>
        </div>
     </div>

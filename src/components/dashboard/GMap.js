@@ -8,7 +8,7 @@ const center = {lat: 6.906667, lng: 79.870414}
 const GMap = () => {
 
 
-    const GMAP_API_KEY = 'AIzaSyCx_X6IRR2N2Dp3OF8VbIOESkhArFZ5Oj4'
+    const GMAP_API_KEY = process.env.REACT_APP_GMAP_API_KEY
     const [map, setMap] = useState(null)
     const [markers, setMarkers] = useState([
         {lat: 6.906667, lng: 79.870414},
