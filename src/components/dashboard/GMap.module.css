@@ -1,6 +1,6 @@
 .map-holder{
-    height: 100vh;
-    max-height: 100vh;
+    max-height: 90vh;
+    height: 90vh;
     /*display: grid;*/
     /*grid-template-rows: 10rem 1fr;*/
 }

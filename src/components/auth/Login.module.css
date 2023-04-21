@@ -1,0 +1,43 @@
+label{
+    display: block;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+.login-page{
+    max-height: 90vh;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+    background: url(".//..//..//assets//car//racing_car.png") ,#151517;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+.card{
+    background-color: #151517;
+    max-width: 30rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+.form-group{
+    margin-bottom: 2rem;
+}
+.card-body{
+    width: 100%;
+    padding: 1rem;
+}
+.form-control{
+    width: 100%;
+    padding: 0.8rem;
+    outline: 0;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #FFC23C;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+}

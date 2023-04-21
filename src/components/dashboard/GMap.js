@@ -1,21 +1,43 @@
-import  {useState} from "react";
+import {useEffect, useState} from "react";
 import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import classes from "./GMap.module.css"
 import RacingCarIcon from "../../assets/car/racing-car-icon.png"
+import {doc, getFirestore, onSnapshot} from "firebase/firestore";
+import { setDoc,query,collection,orderBy } from "firebase/firestore";
+import {firebaseApp} from "../../Firebase";
+
 
 const center = {lat: 6.906667, lng: 79.870414}
+const collectionName = "v_locations"
 
 const GMap = () => {
 
-
+    const firestore = getFirestore(firebaseApp)
     const GMAP_API_KEY = process.env.REACT_APP_GMAP_API_KEY
-    const [markers, setMarkers] = useState([
-        {lat: 6.906667, lng: 79.870414},
-        {lat: 6.904693, lng: 79.869113},
-        {lat: 6.906294, lng: 79.871430},
-        {lat: 6.906047, lng: 79.868154},
-        {lat: 6.906047, lng: 79.868154}
-    ]);
+    const [markers, setMarkers] = useState([]);
+
+
+
+    const getLocation = () => {
+        const q = query(collection(firestore, collectionName));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            const markers = [];
+            querySnapshot.forEach((doc) => {
+                const lat = parseFloat(doc.data().latitude);
+                const lng = parseFloat(doc.data().longitude);
+                markers.push({
+                    lat,
+                    lng
+                })
+            });
+            setMarkers(markers)
+        });
+
+    }
+
+    useEffect(()=>{
+        getLocation()
+    },[])
 
 
     return <div className={classes['map-holder']}>
@@ -39,7 +61,7 @@ const GMap = () => {
                     // onLoad={map => setMap(map)},
                 >
                     {markers.map((marker, index) => (
-                        <MarkerF position={marker} icon={RacingCarIcon}/>
+                        <MarkerF  position={marker} icon={RacingCarIcon}/>
                     ))}
 
                 </GoogleMap>

@@ -1,8 +1,23 @@
 import classes from "./Home.module.css"
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import {getAuth} from "firebase/auth";
+import {firebaseApp} from "../../Firebase";
+import {useEffect} from "react";
 
 
 const Home = () => {
+    const auth = getAuth(firebaseApp);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (!user) {
+                navigate('/login');
+            }
+        });
+        return () => unsubscribe();
+    }, []);
+
     return <div className={classes['home']}>
         <div className={classes['container']}>
             <div className={classes['btn-container']}>
@@ -11,10 +26,10 @@ const Home = () => {
                     to="/car/add" end> Add Cars
                 </NavLink>
 
-                <NavLink
+                <a
                     className={classes['btn-outline']}
-                    to="/dashboard" end> Track Cars
-                </NavLink>
+                    href="/dashboard" > Track Cars
+                </a>
 
             </div>
         </div>
