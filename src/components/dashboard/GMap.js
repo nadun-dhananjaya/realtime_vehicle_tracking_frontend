@@ -1,5 +1,5 @@
-import react, {useState} from "react";
-import {GoogleMap, LoadScript, MarkerF, Map, Marker} from "@react-google-maps/api";
+import  {useState} from "react";
+import {GoogleMap, LoadScript, MarkerF} from "@react-google-maps/api";
 import classes from "./GMap.module.css"
 import RacingCarIcon from "../../assets/car/racing-car-icon.png"
 
@@ -9,7 +9,6 @@ const GMap = () => {
 
 
     const GMAP_API_KEY = process.env.REACT_APP_GMAP_API_KEY
-    const [map, setMap] = useState(null)
     const [markers, setMarkers] = useState([
         {lat: 6.906667, lng: 79.870414},
         {lat: 6.904693, lng: 79.869113},

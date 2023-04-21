@@ -1,4 +1,3 @@
-import react from "react"
 import classes from "./Dashboard.module.css"
 import GMap from "./GMap";
 import CarItem from "./CarItem";
