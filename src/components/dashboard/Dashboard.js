@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {getAuth} from "firebase/auth";
 
 
-const collectionName = "v_cars"
+const collectionName = "v_locations"
 
 const Dashboard = () => {
     const auth = getAuth(firebaseApp);
@@ -28,25 +28,50 @@ const Dashboard = () => {
     const [carList, setCarList] = useState([])
 
 
-    const q = query(collection(firestore, collectionName), orderBy('createdAt', "desc"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        const cars = [];
-        querySnapshot.forEach((doc) => {
-            const vehicleNo = doc.data().vehicleNo;
-            const riderName = doc.data().riderName;
-            cars.push({
-                vehicleNo,
-                riderName
-            })
-            setCarList(cars)
-        });
-    });
+    // const q = query(collection(firestore, collectionName), orderBy('createdAt', "desc"));
+    // const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    //     const cars = [];
+    //     querySnapshot.forEach((doc) => {
+    //         const vehicleNo = doc.data().vehicleNo;
+    //         const riderName = doc.data().riderName;
+    //         cars.push({
+    //             vehicleNo,
+    //             riderName
+    //         })
+    //         setCarList(cars)
+    //     });
+    // });
 
+    const [vehicleList, setVehicleList] = useState([]);
+
+
+
+    const getLocation = () => {
+        const q = query(collection(firestore, collectionName));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            const markers = [];
+            querySnapshot.forEach((doc) => {
+                const vehicleNo = (doc.data().trackerId);
+                const speed = parseFloat(doc.data().speed);
+
+                markers.push({
+                    vehicleNo,
+                    speed
+                })
+            });
+            setVehicleList(markers)
+        });
+
+    }
+
+    useEffect(()=>{
+        getLocation()
+    },[])
 
     return <div className={classes['dashboard']}>
         <div className={classes['car-list-container']}>
             <ul>
-                {carList.map((car, index) => (
+                {vehicleList.map((car, index) => (
                     <li key={index}>
                         <CarItem car={car}/>
                     </li>

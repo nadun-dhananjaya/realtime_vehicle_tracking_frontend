@@ -60,7 +60,7 @@ const GMap = () => {
                     // onLoad={map => setMap(map)},
                 >
                     {markers.map((marker, index) => (
-                        <MarkerF  position={marker} icon={RacingCarIcon}/>
+                        <MarkerF  position={marker} icon={RacingCarIcon} />
                     ))}
 
                 </GoogleMap>
