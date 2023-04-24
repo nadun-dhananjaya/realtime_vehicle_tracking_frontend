@@ -14,7 +14,7 @@ const TopNav = () => {
         auth.signOut()
     }
     return <div className={classes['container']}>
-        <Link to={'/home'} className={classes['home']}>Home</Link>
+        <Link to={'/'} className={classes['home']}>Home</Link>
         {location.pathname !== "/login" &&  <div onClick={logoutHandler} className={classes['logout']}>Logout</div>}
 
     </div>

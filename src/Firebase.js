@@ -1,10 +1,11 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore"
 
+const FIREBASE_API_KEY = process.env['REACT_APP_FIREBASE_API_KEY']
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyD4qAN-J6UZk7sxYtmYo00iWTQRRZQ5jfY",
+    apiKey: FIREBASE_API_KEY,
     authDomain: "real-time-vehicle-tracki-62ecc.firebaseapp.com",
     projectId: "real-time-vehicle-tracki-62ecc",
     storageBucket: "real-time-vehicle-tracki-62ecc.appspot.com",

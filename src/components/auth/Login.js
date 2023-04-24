@@ -6,6 +6,8 @@ import {useNavigate} from "react-router-dom";
 
 const Login = (props) => {
 
+    console.log(firebaseApp)
+
     const navigate = useNavigate()
     const auth = getAuth(firebaseApp);
 
@@ -26,7 +28,7 @@ const Login = (props) => {
                 // Signed in
                 const user = userCredential.user;
                 // ...
-                navigate('/home')
+                navigate('/')
 
             })
             .catch((error) => {
